@@ -45,8 +45,14 @@ def find_urls(s):
 ## http://www.michigandaily.com/section/opinion
 
 def grab_headlines():
-    pass
-    #Your code here
+    url = "/Users/vinhluong/Desktop/206project2/opinion.html"
+    soup = BeautifulSoup(open(url), 'html.parser')
+
+    mostRead = []
+    anchors = soup.ol.findAll('a')
+    for link in anchors:
+        mostRead.append(link.next_element)
+    return mostRead
 
 
 
