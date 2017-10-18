@@ -13,6 +13,7 @@
 import unittest
 import requests
 import re
+import ssl
 import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
 
@@ -68,7 +69,32 @@ def grab_headlines():
 ## requests.get(base_url, headers={'User-Agent': 'SI_CLASS'})
 
 def get_umsi_data():
-    pass
+
+    base_url = "https://www.si.umich.edu/directory?field_person_firstname_value=&field_person_lastname_value=&rid=All"
+    html = requests.get(base_url, headers={'User-Agent': 'SI_CLASS'})
+    soup = BeautifulSoup(html.text, 'html.parser')
+
+    namesDict = {}
+    dataList = []
+    data = soup.findAll("div", {"class" : "field-item even"})
+    for text in data:
+        if text.string != None:
+            dataList.append(text.string)
+
+            
+    name = dataList[0]
+    title = 1
+
+    namesDict[name] = dataList[1]
+
+
+    return(namesDict)
+
+
+
+
+
+
     #Your code here
 
 ## PART 3 (b) Define a function called num_students.
