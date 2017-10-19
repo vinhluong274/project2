@@ -1,8 +1,9 @@
 ## SI 206 W17 - Project 2
 
 ## COMMENT HERE WITH:
-## Your name:
+## Your name: Vinh Luong
 ## Anyone you worked with on this project:
+#GITHUB Link: https://github.com/vinhluong274/project2
 
 ## Below we have provided import statements, comments to separate out the
 #parts of the project, instructions/hints/examples, and at the end, TESTS.
